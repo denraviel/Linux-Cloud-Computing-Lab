@@ -2,7 +2,10 @@
 
 
 1. Launch AWS Cloud Shell
-2. Create virtual machine
+
+        
+2. Create virtual machine 
+        I created an instane in aws cli with command :
 3. Open port 80 for web traffic
 4. Connect to virtual machine
 5. Install web server

@@ -2,6 +2,9 @@
 
 
 1. Create virtual machine
+    I created a key pair 'my key pair' with the command: `aws ec2 create-key-pair --key-name MyKeyPair --query 'KeyMaterial' --output text > MyKeyPair.pem`
+
+    Then I created an Instance with an Amazon Linux 2 Kernel 5.10 AMI 2.0.20220426.0 x86_64 HVM gp2 image which is available for free tier and an istance type t2.micro: `aws ec2 run-instances --image-id ami-0022f774911c1d690 --instance-type t2.micro --key-name MyKeyPair`
 2. Connect to VM
 3. Understand VM images
 4. Understand VM sizes
