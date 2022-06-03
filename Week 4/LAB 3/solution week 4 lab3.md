@@ -12,12 +12,24 @@ I started the Apache web server with command:`sudo systemctl start httpd`
 To enable Apache web server I used command:`sudo systemctl enable httpd`
 To verify that httpd is on i ran the following command:`sudo systemctl is-enabled httpd`
 To set file permissions
+Add your user (in this case, ec2-user) to the apache group.
+`sudo usermod -a -G apache ec2-user`
+
+To verify your membership in the apache group, reconnect to your instance, and then run the following command
+`groups`
+
+Change the group ownership of /var/www and its contents to the apache group. `sudo chown -R ec2-user:apache /var/www`
+
+To add group write permissions and to set the group ID on future subdirectories, change the directory permissions of /var/www and its subdirectories.
+:`sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;`
+
+To add group write permissions, recursively change the file permissions of /var/www and its subdirectories:`find /var/www -type f -exec sudo chmod 0664 {} \;`
 
 
 2. Test your LAMP server
  To test LAMP server
  Create a PHP file in the Apache document root:`echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php`
- In  web browser,I typed the URL of the file that I just created. This URL is the public DNS address of the instance followed by a forward slash and the file name:`18.234.193.25/phpinfo.php`
+ In  web browser,I typed the URL of the file that I just created. This URL is the public DNS address of the instance followed by a forward slash and the file name:`44.225.208.140/phpinfo.php`
 
  To verify that all of the required packages were installed with the following command:`sudo yum list installed httpd mariadb-server php-mysqlnd`
 
@@ -58,6 +70,6 @@ Delete the phpMyAdmin-latest-all-languages.tar.gz tarball :`rm phpMyAdmin-latest
 
 Starting MySql server :`sudo systemctl start mariadb`
 
-In a web browser, I typed the URL of my phpMyAdmin installation. This URL is the public DNS address (or the public IP address) of your instance followed by a forward slash and the name of your installation directory :`18.234.193.25/phpMyAdmin`
+In a web browser, I typed the URL of my phpMyAdmin installation. This URL is the public DNS address (or the public IP address) of your instance followed by a forward slash and the name of your installation directory :`44.225.208.140/phpMyAdmin`
 
 
