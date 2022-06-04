@@ -1,6 +1,6 @@
-Created a Vm on aws with command : `aws ec2 run-instances --image-id ami-06eecef118bbf9259 --instance-type t2.micro --subnet-id subnet-02291a5ec55ccb635 --count 1 --security-group-ids sg-0fbdae7cca1255b9e --key-name tab2`
 
-connected to the vm using command:`ssh -i tab2.pem ec2-user@18.234.193.25`
+
+connected to the vm using command:`ssh -i ProdCafeServer.pem ec2-user@44.225.208.140`
 
 Updated server `sudo yum update -y`
 1. Prepare the LAMP server
