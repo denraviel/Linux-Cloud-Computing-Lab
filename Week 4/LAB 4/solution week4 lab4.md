@@ -2,7 +2,7 @@ Connecteed with instance used in previous lab :`ssh -i ProdCafeServer.pem ec2-us
 
 Download the latest WordPress installation package with the wget command. The following command should always download the latest release: `wget https://wordpress.org/latest.tar.gz`
 
-Unzip and unarchive the installation package. The installation folder is unzipped to a folder called wordpress :`tar -xzf latest.tar.gz.4`
+Unzip and unarchive the installation package. The installation folder is unzipped to a folder called wordpress :`tar -xzf latest.tar.gz`
 
 To create a database user and database for your WordPress installation
 Start the database server:`sudo systemctl start mariadb`
